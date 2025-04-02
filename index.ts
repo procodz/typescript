@@ -117,5 +117,71 @@
 
 //Array type - TypeScript provides several ways to define arrays, including using the Array type, the [] syntax, and the generic Array<T> type. You can also use tuples to define fixed-length arrays with specific types for each element.
 
-let nums: number[] = [1, 2, 3, 4, 5]; // Array of numbers
-console.log(nums); // [1, 2, 3, 4, 5]
+// let nums: number[] = [1, 2, 3, 4, 5]; // Array of numbers
+// console.log(nums); // [1, 2, 3, 4, 5]
+
+// nums.push("6"); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
+// nums.push(6); // No error, 6 is of type number
+
+//multi dim Array -
+// let arr: number [][] = [[1, 2], [3, 4], [5, 6]]; // Array of arrays of numbers
+
+// for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr[i].length; j++) {
+//         console.log(arr[i][j]); // 1 2 3 4 5 6
+//     }
+// }
+
+// arr.map((item) => {
+//     item.map((subItem) => {
+//         console.log(subItem*2); // 1 2 3 4 5 6
+//     })
+// })
+
+//object type - TypeScript allows you to define the shape of an object using an object type. This can be useful for defining complex data structures or for specifying the expected shape of an object in a function parameter.
+
+// const person: {name: string, age : number, isStudent: boolean} = {
+//     name: "john",
+//     age: 25,
+//     isStudent: true,  //you will have to provide all the properties of the object
+//     // if you don't provide all the properties, it will give an error
+// }
+
+// console.log(`person name is ${person.name}`); // john
+
+// function printUser(): {name: string, age: number, location: string} { //this is vector function
+//     // this is a function that returns an object with name, age and location properties
+//     return {
+//         name: "John",
+//         age: 25,
+//         location: "India"
+//     }
+// }
+
+// const user = printUser();
+// console.log(`user name is ${user.name}`); // John
+
+//type alias - TypeScript allows you to create type aliases using the type keyword. This can be useful for creating more readable and maintainable code, especially when working with complex types or when you want to reuse a type in multiple places.
+
+type Person ={ //convention is to use PascalCase for type names
+    name : string,
+    age: number,
+    locarion?: string //optional property
+    // if you want to make a property optional, you can use the ? operator
+}
+
+function printUser(person: Person){
+    console.log(`user name is ${person.name} age is ${person.age}`); // John
+}
+const res = printUser({name: "john", age: 25}); // John
+// console.log(res);
+
+const person1: Person = {
+    name: "alice",
+    age: 30,
+}
+
+console.log(`person1 name is ${person1.name} age is ${person1.age} location is ${person1.locarion}`); // alice 30 USA
+
+
+
